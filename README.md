@@ -6,7 +6,6 @@
   - Only Use Migration & Model Generators. __(NO Controller or Scaffold generators)__
   - Issues: Google sticking points.
   - Avoid reusing code you've written this phase. __Write it up from scratch.__
-  - As always, feel free to ask an instructor / mentor for help.
   - Moral of the Story: There's no problem here you can't research and solve in short order.
 
 #### Actually read __ALL__ the instructions before you start.
@@ -20,8 +19,6 @@
 Some steps will require corresponding work in multiple files.  Additionally, you may have to overcome small hurdles not outlined within this document. You'll have to figure out what you need and what you don't as you go. Start small and complete features in an MVP behavior driven manner.  Commit after each release!
 
 There are tests for all controllers.  If you have completed all the work, these tests will pass!  **Be sure to run them.**
-
-**Do not push** up until directed by your instructor at the end of the assessment.
 
 After you push, open a P.R.
 
@@ -102,6 +99,5 @@ After you push, open a P.R.
 #### Optional - Refactor
   - If you have time, refactor your code to dry it up, add additional styles as needed.
 
-If you are done early, ask an instructor to take a quick look.
 
 Do your best to build to all the features listed. If you get stuck and need to implement something in an alternative way, that’s better than not implementing it at all. Remain focused on MVP and remember to keep your problem scope small and manageable.
