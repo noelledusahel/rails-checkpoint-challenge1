@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :concerts, through: :attendence
+  has_many :attendances, foreign_key: :attendee_id
+  has_many :concerts, through: :attendances
 
   validates :first_name, :last_name, :email, :password, presence: true
   validates :email, uniqueness: true
