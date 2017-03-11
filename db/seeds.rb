@@ -1,4 +1,4 @@
-require 'faker'
+grequire 'faker'
 
 Concert.destroy_all
 User.destroy_all
