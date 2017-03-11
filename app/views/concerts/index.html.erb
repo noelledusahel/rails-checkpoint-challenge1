@@ -1,0 +1,7 @@
+<h1>Thud Hub</h1>
+
+   <% @concerts.each do |concert| %> 
+      <p><b><%= concert.band  %></b> </p>
+      <p><%= concert.venue  %> </p>
+      <em><p><%= concert.date  %> </p></em><br>
+         <% end  %>
