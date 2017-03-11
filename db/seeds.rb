@@ -16,11 +16,8 @@ concerts = Concert.all
 users = User.all
 
 15.times do
-  Attendance.create(attendee: users.sample, concert: concerts.sample)
+  Attendance.create(user_id: users.sample.id, concert_id: concerts.sample.id)
 end
-
-
-
 
 
 
