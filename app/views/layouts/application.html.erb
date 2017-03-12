@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Phase3Assessment</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Phase3Assessment</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+
+  <nav>
+    <li style="list-style:none"><%= link_to "Home", concerts_path  %> </li>
+    <% if session[:user] %> 
+    <li style="list-style:none"><%= link_to "Logout", session_path(session[:user]), method: :delete %> </li>
+    <% else %>
+    <li style="list-style:none"><%= link_to "Login", new_session_path  %> </li>
+    <li style="list-style:none"><%= link_to "Register", new_user_path  %> </li>
+    <% end  %> 
+
+  </nav><br>
+  <%= yield %>
+</body>
 </html>
