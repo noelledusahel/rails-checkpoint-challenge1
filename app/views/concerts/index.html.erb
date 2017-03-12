@@ -4,11 +4,8 @@
 
 <div class="concert-list">
 	<% @concerts.each do |concert| %> 
-	<p><b><big><%= concert.band  %></big></b> </p>
-	<p>Venue: <%= concert.venue  %> </p>
-	<em><p><%= concert.date.strftime('%m/%d/%Y') %></p>
-		<p><%=concert.start_time.strftime('%I:%M %p') %></p></em>
-		<p> <%=link_to "More Details", concert_path(concert) %></p> <br> 
+	<p><b><%= link_to concert.band, concert_path(concert) %></b> 
+	Venue: <%= concert.venue  %> </p>
 		<% end  %>
 	</div>
 

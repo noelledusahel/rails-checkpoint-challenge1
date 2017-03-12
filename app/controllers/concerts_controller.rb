@@ -1,7 +1,7 @@
 class ConcertsController < ApplicationController
 
 	def index
-		@concerts = Concert.all
+		@concerts = Concert.order(:date)
 	end
 
 	def show
@@ -13,6 +13,10 @@ class ConcertsController < ApplicationController
 		@concert = Concert.new
 	end 
 
+	def edit
+		@concert = Concert.find(params[:id])
+	end 
+
 	def create
 		@concert = Concert.new(concert_params)
 
@@ -22,6 +26,28 @@ class ConcertsController < ApplicationController
 			render 'new'
 		end 
 	end 
+
+	def update
+		@concert = Concert.find(params[:id])
+		@concert.update_attributes(concert_params)
+		
+		if @concert.save
+			redirect_to concert_path(@concert)
+		else 
+			@errors = @concert.errors.full_messages
+			render 'edit'
+		end 
+	end 
+
+	def destroy
+		@concert = Concert.find(params[:id])
+		@concert.destroy
+
+		
+		redirect_to concerts_path
+	end
+
+
 
 	private
 

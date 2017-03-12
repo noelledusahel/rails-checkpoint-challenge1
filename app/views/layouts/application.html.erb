@@ -9,7 +9,9 @@
 </head>
 
 <body>
-
+   <% if logged_in? %> 
+<h1>Hello, <%= User.find(current_user).first_name  %></h1>
+<% end %>
   <nav>
     <li style="list-style:none"><%= link_to "Home", concerts_path  %> </li>
     <% if session[:user] %> 

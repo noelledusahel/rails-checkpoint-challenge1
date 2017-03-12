@@ -16,11 +16,7 @@ class UsersController < ApplicationController
 		end 
 	end 
 
-	def destroy
-		@user = User.find_by(id: session[:user])
-		session[:user] = nil
-		redirect_to concerts_path
-	end 
+
 
 
 
