@@ -1,0 +1,12 @@
+"Hey, This is where <%= @concert.band %>'s playin! "
+
+
+<div class="concert-show">
+	<p><h2> <%= @concert.band  %> </h2></p>
+	<p>   <%= @concert.venue  %> </p>
+	<p>   <%= @concert.date.strftime('%m/%d/%Y')  %> </p>
+	<p>   <%= @concert.start_time.strftime('%I:%M %p')  %> </p>
+
+	   <%= link_to 'Edit Details', edit_concert_path(@concert)   %> 
+	   <%= link_to 'Cancel Concert', concert_path(@concert), method: :delete  %> 
+</div>

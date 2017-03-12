@@ -1,7 +1,13 @@
 <h1>Thud Hub</h1>
 
+   <%= link_to 'Add New Concert', new_concert_path  %> 
+
+<div class="concert-list">
    <% @concerts.each do |concert| %> 
-      <p><b><%= concert.band  %></b> </p>
-      <p><%= concert.venue  %> </p>
-      <em><p><%= concert.date  %> </p></em><br>
+      <p><b><big><%= concert.band  %></big></b> </p>
+      <p>Venue: <%= concert.venue  %> </p>
+      <em><p><%= concert.date.strftime('%m/%d/%Y') %></p>
+      <p><%=concert.start_time.strftime('%I:%M %p') %></p></em><br>
          <% end  %>
+</div>
+
