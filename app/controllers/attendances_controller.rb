@@ -11,6 +11,7 @@ class AttendancesController < ApplicationController
 			if @attendance.save
 				format.html {redirect_to :back, notice: "RSVP successful"}
 				format.js {}
+				p user.attendances.last
 				format.json { render :show, status: :created, location: @attendance}
 			else 
 				format.html { redirect_to :back}
