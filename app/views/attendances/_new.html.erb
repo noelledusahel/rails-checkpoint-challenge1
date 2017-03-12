@@ -1,7 +1,7 @@
-<div class="attendance-form">
-		<button><%= form_for [@concert, Attendance.new], remote: true do |f| %>
+
+		<button type="button" class="btn btn-link"><%= form_for [@concert, Attendance.new], remote: true do |f| %>
 			<%= f.submit "Attend" %>
 			<% end %> 
 		</button>
 		
-	</div>
+	

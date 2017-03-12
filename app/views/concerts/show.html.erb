@@ -1,22 +1,24 @@
 
 
 <div class="concert-show">
+<ul class="list-group">
 	<p><h2> <%= @concert.band  %> </h2></p>
-	<p>   <b>Location:</b> <%= @concert.venue  %> </p>
-	<p>   <b>Date:</b> <%= @concert.date.strftime('%m/%d/%Y')  %> </p>
-	<p>   <b>Doors Open:</b> <%= @concert.start_time.strftime('%I:%M %p')  %> </p>
-
-
-	<%= link_to 'Back', concerts_path  %> 
+	<li class="list-group-item">   <b>Location:</b> <%= @concert.venue  %> </li>
+	<li class="list-group-item">   <b>Date:</b> <%= @concert.date.strftime('%m/%d/%Y')  %> </li>
+	<li class="list-group-item">   <b>Doors Open:</b> <%= @concert.start_time.strftime('%I:%M %p')  %> </li>
+<div class="attendance-form">
+	<button type="button" class="btn btn-link"><%= link_to 'Back', concerts_path  %> </button>
 	<% if logged_in? %> 
 
 	<%= render partial: '/attendances/new' %>
 	   <% end  %> 
-
+</div>
 <div class="concert-attendance">
 	<h2>Attending </h2>
+	<ul class="list-group">
 	<% @attendances.each do |attendee| %>
-	<li><%= attendee.first_name %></li>
+	<li class="list-group-item"><%= attendee.first_name %></li>
 	<% end  %> 
+	</ul>
 
 </div>
