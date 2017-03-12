@@ -6,6 +6,7 @@ class ConcertsController < ApplicationController
 
 	def show
 		@concert = Concert.find_by(id: params[:id])
+		@attendances = @concert.attendees
 
 	end 
 
@@ -43,7 +44,6 @@ class ConcertsController < ApplicationController
 		@concert = Concert.find(params[:id])
 		@concert.destroy
 
-		
 		redirect_to concerts_path
 	end
 

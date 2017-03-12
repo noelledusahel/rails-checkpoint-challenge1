@@ -2,12 +2,23 @@
 
 <div class="concert-show">
 	<p><h2> <%= @concert.band  %> </h2></p>
-	<p>   <%= @concert.venue  %> </p>
-	<p>   <%= @concert.date.strftime('%m/%d/%Y')  %> </p>
-	<p>   <%= @concert.start_time.strftime('%I:%M %p')  %> </p>
+	<p>   <b>Location:</b> <%= @concert.venue  %> </p>
+	<p>   <b>Date:</b> <%= @concert.date.strftime('%m/%d/%Y')  %> </p>
+	<p>   <b>Doors Open:</b> <%= @concert.start_time.strftime('%I:%M %p')  %> </p>
 
 	   
 	   <%= link_to 'Back', concerts_path  %> 
-	   <%= link_to 'Edit Details', edit_concert_path(@concert)   %> 
-	   <%= link_to 'Cancel Concert', concert_path(@concert), method: :delete, data: {confirm: "Are you sure?"} %> 
+	     <% if logged_in? %>  <button><%= form_for :attendance, url: concert_attendances_path(@concert) do |f| %>
+	   	<%= f.submit "Attend" %>
+	   	   <% end %> 
+	   </button>
+	      <% end  %> 
+</div>
+
+<div class="concert-attendance">
+<h2>Attending </h2>
+	<% @attendances.each do |attendee| %>
+	<li><%= attendee.first_name %></li>
+	   <% end  %> 
+
 </div>
