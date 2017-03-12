@@ -7,14 +7,19 @@ class AttendancesController < ApplicationController
 	def create
 		user = User.find(current_user)
 		@attendance = user.attendances.new(concert_id: params[:concert_id])
+		respond_to do |format|
+			if @attendance.save
+				format.html {redirect_to :back, notice: "RSVP successful"}
+				format.js {}
+				format.json { render :show, status: :created, location: @attendance}
+			else 
+				format.html { redirect_to :back}
+				format.json { render json: @attendance.errors, status: :unprocessable_entity }
+			end 
+		end
 
-		if @attendance.save
-			redirect_to :back
-		else 
-			redirect_to :back
-		end 
-	end
+	end 
 
-	
+
 
 end 

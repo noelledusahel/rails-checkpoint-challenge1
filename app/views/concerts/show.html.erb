@@ -10,14 +10,8 @@
 	<%= link_to 'Back', concerts_path  %> 
 	<% if logged_in? %> 
 
-	<div class="attendance-form">
-		<button><%= form_for :attendance, html: {class: "add-attendance"}, url: concert_attendances_path(@concert) do |f| %>
-			<%= f.submit "Attend" %>
-			<% end %> 
-		</button>
-		<% end  %> 
-	</div>
-</div>
+	<%= render partial: '/attendances/new' %>
+	   <% end  %> 
 
 <div class="concert-attendance">
 	<h2>Attending </h2>
