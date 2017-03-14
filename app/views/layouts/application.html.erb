@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Phase3Assessment</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Phase3Assessment</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+ <% if logged_in? %> 
+ <h1>Hello, <%= User.find(current_user).first_name  %></h1>
+ <% end %>
+ <nav class="navbar navbar-default">
+
+   <ul class="nav navbar-nav">
+
+    <li class="navbar-brand"><b>Thud Hub</b></li>
+    <li style="list-style:none"><%= link_to "Home", concerts_path  %> </li>
+    <% if session[:user] %> 
+    <li style="list-style:none"><%= link_to "Logout", session_path(session[:user]), method: :delete %> </li>
+    <% else %>
+    <li style="list-style:none"><%= link_to "Login", new_session_path  %> </li>
+    <li style="list-style:none"><%= link_to "Signup", new_user_path  %> </li>
+  </ul>
+  <% end %> 
+
+</nav><br>
+<%= yield %>
+</body>
 </html>
